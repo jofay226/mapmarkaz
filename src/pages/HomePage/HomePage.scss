@@ -1,0 +1,200 @@
+@import "../../assets//style//global.scss";
+
+.homePageContainer1 {
+  background-image: url("../../assets//images/backGroundImageWhite.png");
+  &-wrapper {
+    max-width: 1440px;
+    margin: auto;
+    padding: 50px 20px 50px 20px;
+    @media (min-width: 1360px) {
+      padding: 150px 50px;
+      display: grid;
+      grid-template-columns: 259px 269px 155px 155px 461px;
+      grid-template-rows: repeat(10, 82.5px);
+      grid-template-areas:
+        "war1 war1 htext1 htext1 hext1"
+        "war1 war1 ptext1 ptext1 ptext1"
+        "war1 war1 . . ."
+        ". war2 war2 war2 ptext2"
+        ". war2 war2 war2 ptext2"
+        ". war2 war2 war2 ptext2"
+        // ". war2 war2 ptext2 ptext2"
+        "war3 war3 . . ."
+        "war3 war3 ptext3 ptext3 ptext3"
+        "war3 war3 ptext3 ptext3 ptext3"
+        "war3 war3 . . btnBottom";
+    }
+
+    .htext1 {
+      grid-area: htext1;
+    }
+
+    .war1 {
+      grid-area: war1;
+    }
+    .war2 {
+      grid-area: war2;
+    }
+    .war3 {
+      grid-area: war3;
+    }
+    .btnBottom {
+      grid-area: btnBottom;
+    }
+
+    .ptext1 {
+      grid-area: ptext1;
+      @media (min-width: 1360px) {
+        text-align: justify;
+        // padding-left: 20px;
+      }
+    }
+    .ptext2 {
+      grid-area: ptext2;
+      @media (min-width: 1360px) {
+        text-align: justify;
+        // padding-left: 20px;
+      }
+    }
+    .ptext3 {
+      grid-area: ptext3;
+
+      @media (min-width: 1360px) {
+        text-align: justify;
+        padding-left: 20px;
+      }
+    }
+
+    & > h1 {
+      @include fontStyle(Montserrat, 700, 25px, 30px, $primary-h-color);
+      @media (min-width: 1360px) {
+        align-self: center;
+        @include fontStyle(Montserrat, 700, 50px, 61px, $primary-h-color);
+      }
+    }
+    & > img {
+      display: none;
+      width: 528px;
+      height: 338px;
+      @media (min-width: 1360px) {
+        display: block;
+      }
+    }
+    & > p {
+      margin-top: 30px;
+      @media (min-width: 1360px) {
+        @include fontStyle(Montserrat, 400, 18px, 22px, $primary-p-color);
+        text-indent: 20px;
+      }
+    }
+    & > button {
+      display: block;
+      margin-left: auto;
+      margin-top: 35px;
+      background-color: inherit;
+      text-decoration: none;
+      border: none;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      @include fontStyle(Montserrat, 500, 14px, 17px, $btn-blue-color);
+
+      @media (min-width: 1360px) {
+        @include fontStyle(Montserrat, 500, 20px, 24px, $btn-blue-color);
+      }
+    }
+    &-mobileImg {
+      background-image: url("../../assets/images/homePageImgs/warMobile.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 250px;
+      width: 100%;
+      margin-top: 30px;
+      @media (min-width: 1360px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.homePageContainer2 {
+  background-color: black;
+  background-image: url("../../assets//images/backGroundImageBlack.svg");
+  &-wrapper {
+    max-width: 1440px;
+    margin: auto;
+    padding: 50px 20px;
+    transition: all 0.3s;
+    @media (min-width: 960px) {
+      padding: 150px 50px;
+    }
+    & > h1 {
+      @include fontStyle(Montserrat, 700, 25px, 30px, #ffffff);
+      @media (min-width: 960px) {
+        @include fontStyle(Montserrat, 700, 50px, 61px, #ffffff);
+      }
+    }
+    .arrowsWrapper {
+      display: none;
+    }
+
+    @media (min-width: 960px) {
+      .arrowsWrapper {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 20px;
+        & > button {
+          padding: 20px;
+          border-radius: 50%;
+          border: none;
+          transition: all 0.3s;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.3);
+          }
+          & > svg {
+          }
+        }
+      }
+    }
+
+    &-cardWrapper {
+      margin-top: 30px;
+      display: grid;
+      grid-auto-flow: column;
+      overflow: auto;
+      column-gap: 20px;
+      scroll-snap-type: inline mandatory;
+      scroll-behavior: smooth;
+      transition: all 0.3s;
+      @media (min-width: 960px) {
+        margin-top: 20px;
+      }
+      &-card {
+        transition: all 0.3s;
+        scroll-snap-align: start;
+        width: 300px;
+        @media (min-width: 960px) {
+          width: 430px;
+        }
+        &-img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+        }
+        &-text {
+          padding: 15px 10px;
+          background-color: #282e3d;
+          min-height: 95px;
+          & > p {
+            @include fontStyle(Raleway, 600, 20px, 26px, #ffffff);
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

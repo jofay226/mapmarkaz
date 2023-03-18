@@ -1,0 +1,480 @@
+@import "./global.scss";
+
+.headerContainer {
+  background-image: url("../images/backGroundImageWhite.png");
+
+  &-inner {
+    width: 100%;
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 960px) {
+      display: block;
+    }
+
+    &-left {
+      flex-basis: 894px;
+      padding: 19px 50px 0px 50px;
+      @media (max-width: 500px) {
+        padding: 20px 20px 40px 20px;
+
+        .burgersMenu {
+          width: 230px;
+          height: 300px;
+          background-color: white;
+          position: absolute;
+          right: 35px;
+          top: 22px;
+          border-radius: 10px;
+          padding: 70px 20px 20px 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          & > a {
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            &.active {
+              color: brown;
+            }
+          }
+        }
+      }
+
+      &-wrapper1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & > a {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          @media (max-width: 500px) {
+            gap: 5px;
+          }
+          & > img {
+            width: 80px;
+            height: 80px;
+            @media (max-width: 500px) {
+              width: 40px;
+              height: 40px;
+            }
+          }
+          & > span {
+            @include fontStyle(Montserrat, 600, 30px, 37px, $primary-h-color);
+            @media (max-width: 500px) {
+              @include fontStyle(Montserrat, 600, 15px, 18px, $primary-h-color);
+            }
+          }
+        }
+
+        &-select {
+          border: none;
+          background-color: inherit;
+          @include fontStyle(Montserrat, 600, 16px, 20px, $primary-text-color);
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        &-burgerContainer {
+          display: none;
+          @media (max-width: 500px) {
+            display: block;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          &-burger {
+            width: 30px;
+            height: 2px;
+            transition: all 0.3s;
+            background-color: black;
+            .menuOpen & {
+              transform: translate(-50px);
+              background: inherit;
+            }
+            .menuOpen &::after {
+              transform: rotate(-40deg) translate(27px, 22px);
+            }
+            .menuOpen &::before {
+              transform: rotate(40deg) translate(26px, -23px);
+            }
+
+            &::before {
+              content: "";
+              width: 30px;
+              height: 2px;
+              background-color: black;
+              position: absolute;
+              transform: translateY(-8px);
+              transition: all 0.3s;
+            }
+            &::after {
+              content: "";
+              width: 30px;
+              height: 2px;
+              background-color: black;
+              position: absolute;
+              transform: translateY(8px);
+              transition: all 0.3s;
+            }
+          }
+        }
+      }
+
+      &-wrapper2 {
+        margin-top: 50px;
+        max-width: 721px;
+        @media (max-width: 500px) {
+          margin-top: 30px;
+        }
+        & > h1 {
+          @include fontStyle(Montserrat, 700, 50px, 61px, $primary-h-color);
+          @media (max-width: 500px) {
+            @include fontStyle(Montserrat, 700, 25px, 30px, $primary-h-color);
+          }
+        }
+
+        & > p {
+          @include fontStyle(Raleway, 400, 18px, 22px, $primary-p-color);
+          margin-top: 30px;
+          text-align: justify;
+          word-spacing: 10px;
+          @media (max-width: 500px) {
+            @include fontStyle(Montserrat, 400, 12px, 14px, $primary-p-color);
+            margin-top: 15px;
+            word-spacing: 5px;
+          }
+        }
+      }
+
+      &-wrapper3 {
+        display: flex;
+        margin-top: 80px;
+        justify-content: space-between;
+        gap: 50px;
+
+        @media (max-width: 730px) {
+          flex-direction: column;
+          align-items: center;
+        }
+        @media (max-width: 500px) {
+          flex-direction: column-reverse;
+          margin-top: 30px;
+          gap: 15px;
+          align-items: flex-start;
+        }
+
+        &-inner {
+          max-width: 295px;
+          & > p {
+            @include fontStyle(Raleway, 600, 14px, 18px, $primary-text-color);
+            word-spacing: 10px;
+            @media (max-width: 500px) {
+              @include fontStyle(
+                Raleway,
+                600,
+                12px,
+                15.6px,
+                $primary-text-color
+              );
+              word-spacing: 5px;
+              width: 100%;
+            }
+          }
+
+          & > button {
+            @include fontStyle(Montserrat, 500, 18px, 22px, #ffffff);
+            margin-top: 30px;
+            width: 148px;
+            height: 50px;
+            background-color: $btn-blue-color;
+            box-shadow: 0px 13.434px 39.1824px rgba(21, 76, 238, 0.21);
+            border: none;
+            transition: all 0.2s;
+            @media (max-width: 500px) {
+              margin-top: 15px;
+              width: 330px;
+              height: 32px;
+            }
+            &:hover {
+              cursor: pointer;
+              opacity: 0.8;
+            }
+          }
+        }
+
+        & > img {
+          width: 100%;
+        }
+      }
+
+      &-wrapper4 {
+        background-color: #ffffff;
+        margin-top: 45px;
+        min-height: 279px;
+
+        &-inner {
+          display: flex;
+          gap: 80px;
+          @media (max-width: 500px) {
+            flex-direction: column;
+            gap: 20px;
+          }
+          &-left {
+            & > p {
+              @include fontStyle(Montserrat, 500, 18px, 22px, $primary-h-color);
+              @media (max-width: 500px) {
+                @include fontStyle(
+                  Montserrat,
+                  500,
+                  14px,
+                  17px,
+                  $primary-h-color
+                );
+              }
+            }
+            & > a {
+              display: block;
+              @include fontStyle(Raleway, 500, 18px, 27px, $btn-blue-color);
+              @media (max-width: 500px) {
+                display: inline-block;
+                margin-right: 50px;
+                margin-bottom: 10px;
+                @include fontStyle(Raleway, 500, 14px, 27px, $btn-blue-color);
+              }
+            }
+            & > p + a {
+              margin-top: 20px;
+            }
+          }
+
+          &-right {
+            flex-grow: 1;
+            & > p {
+              @include fontStyle(Montserrat, 500, 18px, 22px, $primary-h-color);
+              @media (max-width: 500px) {
+                @include fontStyle(
+                  Montserrat,
+                  500,
+                  14px,
+                  17px,
+                  $primary-h-color
+                );
+                width: 176px;
+              }
+            }
+
+            &-flags {
+              margin-top: 20px;
+              display: grid;
+              width: 100%;
+              grid-template-columns: repeat(auto-fit, 40px);
+              column-gap: 30px;
+              row-gap: 10px;
+              & > div {
+                display: flex;
+                align-items: center;
+              }
+              & > div > img {
+              }
+              & > div > span {
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-right {
+      flex-basis: 546px;
+      background-color: $primary-h-color;
+      // min-height: 953px;
+
+      &-wrapper1 {
+        display: flex;
+        justify-content: center;
+        gap: 64px;
+        padding: 48px 30px 0px 30px;
+        @media (max-width: 500px) {
+          display: none;
+        }
+        & > a {
+          @include fontStyle(
+            Montserrat,
+            600,
+            16px,
+            20px,
+            rgba(255, 255, 255, 0.6)
+          );
+          text-decoration: none;
+
+          &:hover {
+            color: #ffffff;
+          }
+        }
+
+        & > a.active {
+          color: #ffffff;
+        }
+      }
+
+      &-wrapper2 {
+        margin-top: 130px;
+        // transform-style: preserve-3d;
+        display: flex;
+        justify-content: center;
+        @media (max-width: 500px) {
+          margin-top: 0px;
+        }
+        &-earth {
+          width: 385px;
+          height: 385px;
+          border-radius: 50%;
+          background: url(../images/worldMap.jpg);
+          background-size: cover;
+          // background-repeat: repeat-x;
+          box-shadow: inset 0 0 20px rgba(0, 0, 0, 1), 0 0 50px #4069ff;
+          animation: animateEarth 20s linear infinite;
+
+          @keyframes animateEarth {
+            0% {
+              background-position: 0 0;
+            }
+            100% {
+              background-position: -970px 0;
+            }
+          }
+
+          @media (max-width: 500px) {
+            margin-top: 50px;
+            width: 247px;
+            height: 247px;
+          }
+        }
+      }
+
+      &-wrapper3 {
+        background: rgba(255, 255, 255, 0.05);
+        margin-top: 89px;
+        padding: 30px 30px 37px 30px;
+        @media (max-width: 500px) {
+          margin-top: 50px;
+          padding: 30px;
+        }
+
+        &-inner1 {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+          @media (max-width: 500px) {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          &-form {
+            &-inputWrapper {
+              border: 2px solid rgba(255, 255, 255, 0.3);
+              display: flex;
+              width: 300px;
+              height: 62px;
+              padding: 10px;
+              gap: 5px;
+              & > input {
+                flex: 1;
+                outline: none;
+                border: none;
+                font-size: 20px;
+                background: transparent;
+                color: white;
+                &::placeholder {
+                  font-size: 15px;
+                  color: white;
+                }
+              }
+              & > button {
+                border: none;
+                border-radius: 20%;
+                background: transparent;
+                transition: all 0.3s;
+                &:hover {
+                  cursor: pointer;
+                  transform: scale(1.3);
+                }
+                & > svg {
+                  color: white;
+                  font-size: 30px;
+                }
+              }
+            }
+          }
+
+          &-date {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 10px;
+            width: 161px;
+            color: white;
+            display: grid;
+            place-items: center;
+          }
+        }
+
+        &-inner2 {
+          margin-top: 20px;
+          &-left {
+            display: flex;
+            justify-content: space-between;
+            @media (max-width: 500px) {
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+            }
+
+            & > :first-child {
+              font-size: 40px;
+            }
+            & > div {
+              // flex: 1;
+              color: white;
+              display: flex;
+              align-items: center;
+              // gap: 10px;
+              font-size: 18px;
+            }
+          }
+          &-right {
+            display: flex;
+            justify-content: space-between;
+            @media (max-width: 500px) {
+              flex-direction: column;
+              align-items: center;
+            }
+            &-left {
+              color: white;
+              & > div {
+                margin-top: 10px;
+              }
+            }
+            &-right {
+              flex: 1;
+              text-align: center;
+              color: white;
+              font-size: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
