@@ -1,0 +1,33 @@
+@import "../../assets/style/global.scss";
+
+.cardCompContainer {
+  width: 100%;
+  background-color: white;
+  padding: 30px 15px 15px 15px;
+  transition: all 0.3s;
+  margin-bottom: 10px;
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & > span {
+      @include fontStyle(Montserrat, 500, 16px, 20px, $primary-text-color);
+    }
+    & > svg {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: 30px;
+    @media (min-width: 960px) {
+      justify-content: start;
+    }
+  }
+}
