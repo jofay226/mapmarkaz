@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'contact',
-        element: <ContactPage/>
+        // element: <ContactPage/>
       }
     ]
   },
